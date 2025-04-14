@@ -1,0 +1,7 @@
+{
+  "name": "revisao-top",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
