@@ -185,5 +185,5 @@
     }
     ```
 
-#Fontes:
+# Fontes:
 **Mais informações podem ser obtidas no site __[Ionic Framework](https://ionicframework.com/docs/cli)**
