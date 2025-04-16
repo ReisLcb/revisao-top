@@ -115,6 +115,29 @@
      }
   }
    ```
+## Instalação do Preferences
+  - Dentro da raíz do projeto, abra o terminal e digite:
+    ```bash
+    npm install @capacitor/preferences
+    ```
+  - O Capacitor é uma biblioteca que permite utilizar os componentes do dispositivo que executa o seu projeto
+      - Preferences é um serviço que permite armazenar e recuperar dados de forma persistente
+      - Auxílio para armazenar dados que serão utilizados por outra página
+      - Semelhante ao localStorage
+        ```typescript
+        export class UsuarioService {
+            private USER_KEY = "user" // Chave que será usada para identificar o objeto a armazenar ser
+          
+            async cadastrarUsuario(usuario:User):Promise<void>{
+                      await Preferences.set({ // Guarda o vetor dentro do Preferences
+                        key: this.USER_KEY,
+                        value: JSON.stringify(usuario)
+                      })
+                  }
+
+              constructor(){}
+        }
+        ```
 
 #Fontes:
 **Mais informações podem ser obtidas no site __[Ionic Framework](https://ionicframework.com/docs/cli)**
