@@ -126,10 +126,10 @@
       - Semelhante ao localStorage
         ```typescript
         export class UsuarioService {
-            private USER_KEY = "user" // Chave que será usada para identificar o objeto a armazenar ser
+            private USER_KEY = "user" // Chave que será usada para identificar o objeto a ser armazenado
           
             async cadastrarUsuario(usuario:User):Promise<void>{
-                      await Preferences.set({ // Guarda o vetor dentro do Preferences
+                      await Preferences.set({ // Guarda o objeto
                         key: this.USER_KEY,
                         value: JSON.stringify(usuario)
                       })
@@ -138,6 +138,22 @@
               constructor(){}
         }
         ```
+      - Para pegar o valor atrelado a chave, usamos:
+        ```typescript
+        Preferences.get({key: this.USER_KEY})
+        // Pode ser armazenado numa variável ou não
+        ```
+  ## Obter valores específicos do Preferences ou Promises
+  - O valor retornado por uma chamada `Preferences.get()` é sempre uma **Promise**
+  - Para armazenar o valor retornado de uma promisse em um atributo ou variável, é preciso usar os método `.then()`, `.catch()` e/ou `.finally()`
+  - Esses métodos recebem uma **Arrow function** recebendo como parâmetro o valor a ser recebido da promisse (sendo bem-sucedida ou não)
+    ```typescript
+      let p1 = new Promise((resolve, reject) =>{
+            resolve(true)
+            reject(false)
+      }).then((valor) => return valor) // retorna o valor de 'resolve' caso a promise seja bem-sucedida
+        .catch((valor) =< return valor) // retorna o valor de 'reject' caso a promise falhe
+    ```
 
 #Fontes:
 **Mais informações podem ser obtidas no site __[Ionic Framework](https://ionicframework.com/docs/cli)**
