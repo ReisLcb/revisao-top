@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Entrar</ion-card-title>
+      <ion-card-subtitle>Entre na sua conta para ter acesso ao nosso sistema</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-input type="text" label="Nome de usuário:" fill="solid" [(ngModel)]="nome"></ion-input>
+      <ion-input type="password" label="Senha:" fill="solid" [(ngModel)]="senha"></ion-input>
+    </ion-card-content>
+  
+    <ion-button fill="clear" (click)="logar()">Log-in</ion-button>
+    <ion-button fill="clear" (click)="limpar()">Limpar</ion-button>
+  </ion-card>
+  <ion-button fill="clear" (click)="telaCadastro()">Tela de cadastro</ion-button>
+</ion-content>
