@@ -106,13 +106,13 @@
   })
    
   export class ExemploService {
-   private atributo!:any // ! indica que o atributo não foi iniciado com algum valor
-   
-  constructor() {}
-
-   async metodo(){
-     //corpo do código
-   }
+     private atributo!:any // ! indica que o atributo não foi iniciado com algum valor
+     
+    constructor() {}
+  
+     async metodo(){
+       //corpo do código
+     }
   }
    ```
 
