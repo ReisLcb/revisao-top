@@ -3,7 +3,7 @@
     - Descompacte o arquivo zip, extraia em sua máquina e execute no Visual Studio Code
 - Para clonar este repositório em sua máquina, utilize o seguinte comando:
    ```bash
-   git clone https://github.com/ReisLcb/appRoute-TOP.git
+   git clone https://github.com/ReisLcb/revisao-top.git
    ```
 
 - Para instalar as dependências, basta executar no terminal dentro da pasta local do projeto:
