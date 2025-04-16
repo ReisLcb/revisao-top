@@ -27,7 +27,7 @@ export class UsuarioService {
       })
 
       this.router.navigate(["login"]) // Navega para a página de login
-    } else alert(`O nome de usuário ${usuario.nome} já está cadastrado`) // Mensagem de erro
+    } else alert(`O usuário ${usuario.nome} já está cadastrado`) // Mensagem de erro
   }
 
   async getUsers():Promise<User[]>{ // Método para retornar o vetor de usuários
@@ -39,17 +39,19 @@ export class UsuarioService {
   async logar(nome:string, senha:string):Promise<void>{
       const users = await this.getUsers() || [] // Retorna os usuários
       let user!:User|undefined // Declara uma variável que pode conter um usuário ou undefined
+      
+      if(nome.trim() != "" || senha.trim() != ""){
+        if (users.some(e => e.nome == nome && e.senha == senha)) { // Verifica a existência de um usuário com as credenciais digitadas no login
+          user = users.find((usuario) => usuario.nome == nome && usuario.senha == senha) // O usuário é armazenado na variável
 
-      if (users.some(e => e.nome == nome && e.senha)) { // Verifica a existência de um usuário com as credenciais digitadas no login
-        user = users.find((usuario) => usuario.nome == nome && usuario.senha == senha) // O usuário é armazenado na variável
+          await Preferences.set({ // Guarda o usuário logado dentro do Preferences
+            key: "loggedUser",
+            value: JSON.stringify(user)
+          })
 
-        await Preferences.set({ // Guarda o usuário logado dentro do Preferences
-          key: "loggedUser",
-          value: JSON.stringify(user)
-        })
-
-        this.router.navigate(["saida"]) // Navega para a página de saída
-      } else alert(`Nome de usuário ou senha incorretos`)
+          this.router.navigate(["saida"]) // Navega para a página de saída
+        } else alert(`Nome de usuário ou senha incorretos`)
+      } else alert(`Preencha os campos corretamente`)
   }
 
   async sair(){
