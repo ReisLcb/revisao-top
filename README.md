@@ -1,14 +1,10 @@
-# Clonando repósitório em sua máquina
+# Clonando ou baixando repósitório em sua máquina
+- Para baixar este repoitório, clique em `code` e em `Download zip`
+    - Descompacte o arquivo zip, extraia em sua máquina e execute no Visual Studio Code
 - Para clonar este repositório em sua máquina, utilize o seguinte comando:
    ```bash
-   cd pasta-desejada 
    git clone https://github.com/ReisLcb/appRoute-TOP.git
    ```
-  - Caso queira clonar a resolução do exercício ou alguma outra branch específica, execute:
-    ```bash
-    git clone -b <branch-name> https://github.com/ReisLcb/appRoute-TOP.git
-    ## <branch-name> pode ser substituido por 'exercicio-cadastro'
-    ```
 
 - Para instalar as dependências, basta executar no terminal dentro da pasta local do projeto:
   ```bash
@@ -69,7 +65,7 @@
       ## [schematic] pode ser: 'page', 'directive', 'component' ou 'service' 
       ```
 
-    - Neste caso, no lugar de ```[schematic]``` escrevemos ```page```, e para ```[name]``` escrevemos o nome da nossa nova página
+    - Neste caso, no lugar de ```[schematic]``` escrevemos ```page``` ou `service`, e para ```[name]``` escrevemos o nome da nossa nova página ou serviço
 ## Arquivo de rotas
 ![image](https://github.com/user-attachments/assets/8fff08db-8500-45d5-9746-1ade71e08b02)
 
