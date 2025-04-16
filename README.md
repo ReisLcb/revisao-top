@@ -187,3 +187,5 @@
 
 # Fontes
 **Mais informações podem ser obtidas no site __[Ionic Framework](https://ionicframework.com/docs/cli)__**
+**Promises: __[MDN web docs](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise)__**
+**Array.prototype.some(): __[MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)__**
