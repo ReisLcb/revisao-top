@@ -13,14 +13,14 @@ import { Router } from '@angular/router';
 })
 
 export class LoginPage implements OnInit {
-  router = inject(Router)
+  router = inject(Router) // Injeta o router
+  UserService:UsuarioService = new UsuarioService() // Instância da classe UsuarioService
   nome:string = ""
   senha:string = ""
-  UserService:UsuarioService = new UsuarioService()
 
   constructor() { }
 
-  logar(){
+  logar(){ // Método para logar na conta
     this.UserService.logar(this.nome, this.senha)
   }
 
@@ -30,7 +30,7 @@ export class LoginPage implements OnInit {
   }
 
   telaCadastro(){
-    this.router.navigate(["home"])
+    this.router.navigate(["home"]) // navega para a tela de cadastro
   }
 
   ngOnInit() {

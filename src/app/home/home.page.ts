@@ -20,12 +20,12 @@ export class HomePage {
   constructor() {}
 
   cadastrar(){
-    if(this.nome.trim() != "" && this.senha.trim() != ""){
-        this.UserService.cadastrarUsuario({nome: this.nome, senha: this.senha})
+    if(this.nome.trim() != "" && this.senha.trim() != ""){ // Tira os espaços e verifica se o nome e senha não estão vazios
+        this.UserService.cadastrarUsuario({nome: this.nome, senha: this.senha}) // Chama cadastrarUsuario() do serviço do usuário
 
         this.nome = ""
-        this.senha = ""
-    } else alert(`Preencha corretamente todos os campos`)
+        this.senha = "" // Limpa o nome e senha
+    } else alert(`Preencha corretamente todos os campos`) // mensagem de erro
   }
 
   limpar(){
@@ -33,7 +33,7 @@ export class HomePage {
     this.senha = ""
   }
 
-  telaLogin(){
+  telaLogin(){ // Navega para a tela de login
     this.router.navigate(["login"])
   }
 }

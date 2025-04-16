@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Cadastro
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,7 +9,7 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Cadastro</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -21,13 +21,13 @@
       </ion-card-header>
     
       <ion-card-content>
-        <ion-input type="text" label="Nome de usuário:" fill="solid" [(ngModel)]="nome"></ion-input>
+        <ion-input type="text" label="Nome de usuário:" fill="solid" [(ngModel)]="nome"></ion-input> <!--ngModel recebe o que é digitado no input-->
         <ion-input type="password" label="Senha:" fill="solid" [(ngModel)]="senha"></ion-input>
       </ion-card-content>
     
-      <ion-button fill="clear" (click)="cadastrar()">Cadastrar-se</ion-button>
-      <ion-button fill="clear" (click)="limpar()">Limpar</ion-button>
+      <ion-button fill="clear" (click)="cadastrar()">Cadastrar-se</ion-button> <!--Método para cadastrar-->
+      <ion-button fill="clear" (click)="limpar()">Limpar</ion-button> <!--Método para limpar-->
     </ion-card>
   </div>
-  <ion-button fill="clear" (click)="telaLogin()">Tela de login</ion-button>
+  <ion-button fill="clear" (click)="telaLogin()">Tela de login</ion-button> <!--Navegar para a tela de cadastro-->
 </ion-content>

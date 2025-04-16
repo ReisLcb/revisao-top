@@ -15,11 +15,16 @@ import { Preferences } from '@capacitor/preferences';
 
 export class SaidaPage implements OnInit {
   nome:any = Preferences.get({key: "loggedUser"}).then((value:any) => this.nome = JSON.parse(value["value"]).nome)
+  // Procura pelo usuário dentro do preferences
+  // .then() procura pelo valor partindo caso a promisse retorne o objeto
+  // O objeto do usuário logado está na forma de string e o JSON.parse() muda para a notação de objeto
+  // Depois de convertido, pegamos a propriedade 'nome' do objeto e armazenamos dentro de this.nome
+
   router = inject(Router)
-  userService:UsuarioService = new UsuarioService()
+  userService:UsuarioService = new UsuarioService() // instância da classe UsuarioService
   
-  sair(){
-    this.userService.sair()
+  sair(){ // Método para sair da conta
+    this.userService.sair() // Chama o método sair() do UsuárioService
   }
 
   constructor() {  }
