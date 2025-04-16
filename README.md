@@ -189,4 +189,4 @@
 **Documentação Ionic: __[Ionic Framework](https://ionicframework.com/docs/cli)__** \
 **Promises: __[MDN web docs](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise)__** \
 **Array.prototype.some(): __[MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)__** \
-**Códigos e slides de Aula - Júlio**
+**Códigos e slides de Aula: __[Moodle](http://moodle.pep2.ifsp.edu.br/login/index.php)__**
