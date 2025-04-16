@@ -186,4 +186,4 @@
     ```
 
 # Fontes:
-**Mais informações podem ser obtidas no site __[Ionic Framework](https://ionicframework.com/docs/cli)**
+**Mais informações podem ser obtidas no site __[Ionic Framework](https://ionicframework.com/docs/cli)__**
