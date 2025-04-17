@@ -13,24 +13,24 @@ import { Router } from '@angular/router';
 })
 
 export class LoginPage implements OnInit {
-  router = inject(Router) // Injeta o router
-  UserService:UsuarioService = new UsuarioService() // Instância da classe UsuarioService
-  nome:string = ""
+  router = inject(Router) 
+  UserService:UsuarioService = new UsuarioService() 
+  email:string = ""
   senha:string = ""
 
   constructor() { }
 
-  logar(){ // Método para logar na conta
-    this.UserService.logar(this.nome, this.senha)
+  logar(){
+    this.UserService.logar(this.email, this.senha)
   }
 
   limpar(){
-    this.nome = ""
+    this.email = ""
     this.senha = ""
   }
 
   telaCadastro(){
-    this.router.navigate(["home"]) // navega para a tela de cadastro
+    this.router.navigate(["home"]) 
   }
 
   ngOnInit() {

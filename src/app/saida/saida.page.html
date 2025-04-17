@@ -13,13 +13,17 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Usuário ativo: {{ nome }}</ion-card-title> <!--Apresenta this.nome da classe SaidaPage-->
-      <ion-card-subtitle></ion-card-subtitle>
+      <ion-card-title>Conta ativa: {{ nome }}</ion-card-title>
+      <ion-card-subtitle>E-mail: {{ email }}</ion-card-subtitle>
+      <ion-card-subtitle>Data de nascimento: {{ dataNasc }}</ion-card-subtitle>
+      <ion-card-subtitle>CEP: {{ cep }}</ion-card-subtitle>
+      <ion-card-subtitle>Rua: {{ rua }}</ion-card-subtitle>
+      <ion-card-subtitle>Número: {{ numero }}</ion-card-subtitle>
     </ion-card-header>
   
     <ion-card-content>
     </ion-card-content>
   
-    <ion-button fill="clear" (click)="sair()">Sair da conta</ion-button> <!--Método para sair da conta-->
+    <ion-button fill="clear" (click)="sair()">Sair da conta</ion-button>
   </ion-card>
 </ion-content>

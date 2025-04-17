@@ -21,13 +21,19 @@
       </ion-card-header>
     
       <ion-card-content>
-        <ion-input type="text" label="Nome de usuário:" fill="solid" [(ngModel)]="nome"></ion-input> <!--ngModel recebe o que é digitado no input-->
+        <ion-input type="text" label="Nome de usuário:" fill="solid" [(ngModel)]="nome"></ion-input>
+        <ion-input type="text" label="Data de nascimento:" fill="solid" [(ngModel)]="dataNasc"></ion-input>
+        <ion-input type="email" label="E-mail:" fill="solid" [(ngModel)]="email"></ion-input>
         <ion-input type="password" label="Senha:" fill="solid" [(ngModel)]="senha"></ion-input>
+        <ion-input type="text" label="CEP:" fill="solid" [(ngModel)]="cep"></ion-input>
+        <ion-input type="text" label="Rua:" fill="solid" [(ngModel)]="rua"></ion-input>
+        <ion-input type="text" label="Número:" fill="solid" [(ngModel)]="numero"></ion-input>
+        <br><p>Já possui conta?</p>
+        <a fill="clear" (click)="telaLogin()">Entrar na conta</a>
       </ion-card-content>
     
-      <ion-button fill="clear" (click)="cadastrar()">Cadastrar-se</ion-button> <!--Método para cadastrar-->
-      <ion-button fill="clear" (click)="limpar()">Limpar</ion-button> <!--Método para limpar-->
+      <ion-button fill="clear" (click)="cadastrar()">Cadastrar-se</ion-button> 
+      <ion-button fill="clear" (click)="limpar()">Limpar</ion-button>
     </ion-card>
   </div>
-  <ion-button fill="clear" (click)="telaLogin()">Tela de login</ion-button> <!--Navegar para a tela de cadastro-->
 </ion-content>

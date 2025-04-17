@@ -13,27 +13,54 @@ import { Router } from '@angular/router';
 
 export class HomePage {
   nome:string = ""
+  email:string = ""
+  cep:string = ""
+  rua:string = ""
+  numero:string = ""
   senha:string = ""
+  dataNasc:string = ""
   UserService:UsuarioService = new UsuarioService()
   router = inject(Router)
 
   constructor() {}
 
   cadastrar(){
-    if(this.nome.trim() != "" && this.senha.trim() != ""){ // Tira os espaços e verifica se o nome e senha não estão vazios
-        this.UserService.cadastrarUsuario({nome: this.nome, senha: this.senha}) // Chama cadastrarUsuario() do serviço do usuário
+    if(this.nome.trim() != "" && this.senha.trim() != "" && this.email.trim() != "" && this.cep.trim() != "" && this.rua.trim() != "" && this.numero.trim() != "" && this.dataNasc.trim() != ""){
+      let posicao = this.email.indexOf("@")
+      if(posicao != -1 && this.email.length > posicao){
+      if(this.senha.length >= 6){
+        this.UserService.cadastrarUsuario({
+          nome: this.nome, 
+          cep: this.cep, 
+          rua: this.rua, 
+          numero: Number(this.numero), 
+          dataNasc: this.dataNasc, 
+          email: this.email, 
+          senha: this.senha})
 
         this.nome = ""
-        this.senha = "" // Limpa o nome e senha
-    } else alert(`Preencha corretamente todos os campos`) // mensagem de erro
+        this.email = ""
+        this.cep = ""
+        this.rua = ""
+        this.numero = ""
+        this.senha = ""
+        this.dataNasc = ""
+      } else alert("A senha precisa conter pelo menos 6 dígitos")
+    } else alert("Insira um e-mail válido")
+    } else alert(`Preencha corretamente todos os campos`)
   }
 
   limpar(){
     this.nome = ""
+    this.email = ""
+    this.cep = ""
+    this.rua = ""
+    this.numero = ""
     this.senha = ""
+    this.dataNasc = ""
   }
 
-  telaLogin(){ // Navega para a tela de login
-    this.router.navigate(["login"])
+  telaLogin(){
+    this.router.navigate(["/login"])
   }
 }

@@ -1,9 +1,14 @@
 import { inject, Injectable } from '@angular/core';
 import { Preferences } from "@capacitor/preferences"
-import { Router } from '@angular/router'; // Navegar entre as páginas
+import { Router } from '@angular/router';
 
-export interface User{ // Interface do usuário que será usado
+export interface User{ 
   nome:string
+  cep: string
+  rua:string
+  numero:number
+  dataNasc:string
+  email:string
   senha:string
 }
 
@@ -12,51 +17,54 @@ export interface User{ // Interface do usuário que será usado
 })
 
 export class UsuarioService {
-  private USER_KEY = "users" // Chave que será usada para armazenar o array de usuários
-  router = inject(Router) // Ingeta o router na página
+  private USER_KEY = "users" 
+  router = inject(Router) 
 
   async cadastrarUsuario(usuario:User):Promise<void>{
-    const users = await this.getUsers() || [] // Chama this.getUsers() para retornar o vetor de usuários (vazio se não houver nenhum usuário)
+    const users = await this.getUsers() || []
 
-    if(!users.some((e => e.nome == usuario.nome))){ // Verifica a existência de um usuário com as mesmas credenciais dentro do vetor
-      users.push(usuario) // Cadastra caso não haja
+    if(!users.some((e => e.nome == usuario.nome && e.email == usuario.email))){ 
+      if(usuario.senha.length >= 6){
+      users.push(usuario) 
 
-      await Preferences.set({ // Guarda o vetor dentro do Preferences
+      await Preferences.set({ 
         key: this.USER_KEY,
         value: JSON.stringify(users)
       })
 
-      this.router.navigate(["login"]) // Navega para a página de login
-    } else alert(`O usuário ${usuario.nome} já está cadastrado`) // Mensagem de erro
+      this.router.navigate(["login"])
+     } ("A senha precisa conter pelo menos 6 dígitos") 
+    } else alert(`O usuário ${usuario.nome} já está cadastrado`) 
   }
 
-  async getUsers():Promise<User[]>{ // Método para retornar o vetor de usuários
+  async getUsers():Promise<User[]>{
     const { value } = await Preferences.get({key: this.USER_KEY})
 
     return value ? JSON.parse(value) : []
   }
 
-  async logar(nome:string, senha:string):Promise<void>{
-      const users = await this.getUsers() || [] // Retorna os usuários
-      let user!:User|undefined // Declara uma variável que pode conter um usuário ou undefined
+  async logar(email:string, senha:string):Promise<void>{
+      const users = await this.getUsers() || [] 
+      let user!:User|undefined 
       
-      if(nome.trim() != "" || senha.trim() != ""){
-        if (users.some(e => e.nome == nome && e.senha == senha)) { // Verifica a existência de um usuário com as credenciais digitadas no login
-          user = users.find((usuario) => usuario.nome == nome && usuario.senha == senha) // O usuário é armazenado na variável
+      if(email.trim() != "" || senha.trim() != ""){
+        if (users.some(e => e.email == email && e.senha == senha)) { 
+          user = users.find((usuario) => usuario.email == email && usuario.senha == senha) 
 
-          await Preferences.set({ // Guarda o usuário logado dentro do Preferences
+          await Preferences.set({ 
             key: "loggedUser",
             value: JSON.stringify(user)
           })
+          console.log(user)
 
-          this.router.navigate(["saida"]) // Navega para a página de saída
+          this.router.navigate(["saida"])
         } else alert(`Nome de usuário ou senha incorretos`)
       } else alert(`Preencha os campos corretamente`)
   }
 
   async sair(){
-    Preferences.remove({key: "loggedUser"}) // Remove o usuário logado do Preferences
-    this.router.navigate(["login"]) // Navega para o login
+    Preferences.remove({key: "loggedUser"})
+    this.router.navigate(["login"])
   }
 
   constructor() {}

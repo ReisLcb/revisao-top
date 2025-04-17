@@ -15,17 +15,17 @@ import { Preferences } from '@capacitor/preferences';
 
 export class SaidaPage implements OnInit {
   nome:any = Preferences.get({key: "loggedUser"}).then((value:any) => this.nome = JSON.parse(value["value"]).nome)
-  // Procura pelo usuário dentro do preferences
-  // Preferences.get({key: "loggedUser"}) retorna uma promisse
-  // .then() procura pelo valor caso a promisse retorne o objeto
-  // O objeto do usuário logado está na forma de string e o JSON.parse() muda para a notação de objeto
-  // Depois de convertido, pegamos a propriedade 'nome' do objeto e armazenamos dentro de this.nome
+  email:any = Preferences.get({key: "loggedUser"}).then((value:any) => this.email = JSON.parse(value["value"]).email)
+  dataNasc:any = Preferences.get({key: "loggedUser"}).then((value:any) => this.dataNasc = JSON.parse(value["value"]).dataNasc)
+  cep:any = Preferences.get({key: "loggedUser"}).then((value:any) => this.cep = JSON.parse(value["value"]).cep)
+  rua:any = Preferences.get({key: "loggedUser"}).then((value:any) => this.rua = JSON.parse(value["value"]).rua)
+  numero:any = Preferences.get({key: "loggedUser"}).then((value:any) => this.numero = JSON.parse(value["value"]).numero)
 
   router = inject(Router)
-  userService:UsuarioService = new UsuarioService() // instância da classe UsuarioService
+  userService:UsuarioService = new UsuarioService()
   
-  sair(){ // Método para sair da conta
-    this.userService.sair() // Chama o método sair() do UsuárioService
+  sair(){ 
+    this.userService.sair() 
   }
 
   constructor() {  }
